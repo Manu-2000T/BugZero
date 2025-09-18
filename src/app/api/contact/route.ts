@@ -1,45 +1,67 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import prisma from "@/lib/prisma"; // Ensure prisma is correctly imported
 
-interface Message {
-  id: number;
-  text: string;
-  sender?: string;
-  timestamp: string;
-}
+export async function POST(req: Request) {
+  console.log("📩 API /api/contact called"); // Debug log
 
-// In-memory store (not persistent — use a real DB in production)
-const messages: Message[] = [];
-
-export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
+    const body = await req.json();
+    const { name, email, text } = body;
 
-    if (!data.text) {
+    // Validate input fields
+    if (!name || !email || !text) {
+      console.warn("⚠️ Missing fields in request body:", body);
+      return NextResponse.json({ success: false, message: "Missing fields" }, { status: 400 });
+    }
+
+    // Additional validation for email format and string lengths
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      console.warn("⚠️ Invalid email format:", email);
+      return NextResponse.json({ success: false, message: "Invalid email format" }, { status: 400 });
+    }
+
+    if (name.length > 100 || text.length > 1000) {
+      console.warn("⚠️ Name or text exceeds allowed length");
       return NextResponse.json(
-        { success: false, message: "Message text is required" },
+        { success: false, message: "Name or text exceeds allowed length" },
         { status: 400 }
       );
     }
 
-    const newMessage: Message = {
-      id: messages.length + 1,
-      text: data.text,
-      sender: data.sender || "Anonymous",
-      timestamp: new Date().toISOString(),
-    };
-
-    messages.push(newMessage);
-
-    return NextResponse.json({
-      success: true,
-      message: "Message sent successfully!",
-      data: newMessage,
+    // Save message to the database
+    const message = await prisma.message.create({
+      data: { name, email, text, sender: name },
     });
-  } catch (error) {
-    console.error("POST /messages error:", error);
+
+    console.log("✅ Message saved successfully:", message);
+
     return NextResponse.json(
-      { success: false, message: "Failed to send message" },
+      {
+        success: true,
+        message: "Message sent successfully!",
+        data: {
+          id: message.id,
+          text: message.text,
+          sender: message.sender,// Ensure createdAt exists in your schema
+        },
+      },
+      { status: 200 }
+    );
+  } catch (err: any) {
+    console.error("❌ API Error:", err);
+
+    // Handle Prisma-specific errors if needed
+    if (err instanceof Error && "code" in err && err.code === "P2002") {
+      return NextResponse.json(
+        { success: false, message: "Duplicate entry error" },
+        { status: 400 }
+      );
+    }
+
+    // Log generic errors
+    return NextResponse.json(
+      { success: false, message: "Server error", error: err instanceof Error ? err.message : err },
       { status: 500 }
     );
   }
