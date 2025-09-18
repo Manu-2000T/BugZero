@@ -12,7 +12,5 @@ model Message {
   name      String
   email     String
   text      String
-  sender    String   @default("Anonymous")
   createdAt DateTime @default(now())
-  timestamp DateTime @default(now()) // Keep both for backward compatibility
 }
