@@ -126,7 +126,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -138,7 +138,7 @@ export default function Contact() {
               <h3 className="text-2xl font-bold text-white mb-6">
                 Lets Start a Conversation
               </h3>
-              <p className="text-gray-300 mb-8 leading-relaxed text-lg">
+              <p className="text-gray-300 mb-8 leading-relaxed">
                 Whether you need a one-time audit or ongoing testing support,
                 we are here to help. Our team of expert QA engineers will work
                 with you to create a testing strategy that fits your timeline
@@ -153,13 +153,13 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="flex items-start space-x-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all duration-300 group cursor-pointer hover:scale-105"
+                className="flex items-start space-x-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all duration-300 group cursor-pointer"
                 onClick={handleEmailClick}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-blue-600/30 transition-all">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:from-blue-500/30 group-hover:to-blue-600/30 transition-all">
                   <HiMail className="w-6 h-6 text-blue-400" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="font-semibold text-white mb-1">Email Us</h4>
                   <p className="text-accent-primary hover:text-accent-secondary transition-colors font-medium">
                     mani@bugzero.in
@@ -173,19 +173,19 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
-                className="flex items-start space-x-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all duration-300 group cursor-pointer hover:scale-105"
+                className="flex items-start space-x-4 p-6 bg-white/5 rounded-xl border border-white/10 hover:border-accent-primary/30 transition-all duration-300 group cursor-pointer"
                 onClick={handlePhoneClick}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center group-hover:from-green-500/30 group-hover:to-green-600/30 transition-all">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:from-green-500/30 group-hover:to-green-600/30 transition-all">
                   <HiPhone className="w-6 h-6 text-green-400" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="font-semibold text-white mb-1">Call Us</h4>
                   <p className="text-accent-primary hover:text-accent-secondary transition-colors font-medium">
                     +91 8310345400
                   </p>
                   <p className="text-gray-400 text-sm">
-                    Mon-Fri, 9:00 AM - 6:00 PM IST
+                    Response within 24 hours
                   </p>
                 </div>
               </motion.div>
@@ -197,10 +197,10 @@ export default function Contact() {
                 transition={{ duration: 0.4, delay: 0.2 }}
                 className="flex items-start space-x-4 p-6 bg-white/5 rounded-xl border border-white/10"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <HiLocationMarker className="w-6 h-6 text-purple-400" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="font-semibold text-white mb-1">Location</h4>
                   <p className="text-gray-300">Bengaluru, Karnataka, India</p>
                   <p className="text-gray-400 text-sm">Serving clients globally</p>
@@ -214,10 +214,10 @@ export default function Contact() {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="flex items-start space-x-4 p-6 bg-white/5 rounded-xl border border-white/10"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <HiClock className="w-6 h-6 text-orange-400" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="font-semibold text-white mb-1">Response Time</h4>
                   <p className="text-gray-300">Within 24 hours</p>
                   <p className="text-gray-400 text-sm">Usually much faster!</p>
@@ -230,7 +230,7 @@ export default function Contact() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-gradient-to-r from-accent-primary/10 to-accent-secondary/10 rounded-xl p-6 border border-white/10 mt-12"
+              className="bg-gradient-to-r from-accent-primary/10 to-accent-secondary/10 rounded-xl p-6 border border-white/10"
             >
               <h4 className="text-lg font-semibold text-white mb-4">
                 Meet the Founders
@@ -249,7 +249,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-fit"
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
           >
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-white mb-2">Send a Message</h3>
@@ -278,7 +278,7 @@ export default function Contact() {
                 />
                 {errors.name && (
                   <div className="flex items-center space-x-2 mt-2">
-                    <HiExclamationCircle className="w-4 h-4 text-red-400" />
+                    <HiExclamationCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
                     <span className="text-red-400 text-sm">{errors.name}</span>
                   </div>
                 )}
@@ -305,7 +305,7 @@ export default function Contact() {
                 />
                 {errors.email && (
                   <div className="flex items-center space-x-2 mt-2">
-                    <HiExclamationCircle className="w-4 h-4 text-red-400" />
+                    <HiExclamationCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
                     <span className="text-red-400 text-sm">{errors.email}</span>
                   </div>
                 )}
@@ -332,7 +332,7 @@ export default function Contact() {
                 />
                 {errors.text && (
                   <div className="flex items-center space-x-2 mt-2">
-                    <HiExclamationCircle className="w-4 h-4 text-red-400" />
+                    <HiExclamationCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
                     <span className="text-red-400 text-sm">{errors.text}</span>
                   </div>
                 )}

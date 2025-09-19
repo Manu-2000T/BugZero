@@ -137,27 +137,28 @@ export default function Hero() {
 
           {/* Right Content - Stats */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="grid grid-cols-2 gap-6"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-accent-primary/30 transition-colors group text-center"
-              >
-                <stat.icon className="w-8 h-8 text-accent-primary mb-4 group-hover:text-accent-secondary transition-colors mx-auto" />
-                <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+  initial={{ opacity: 0, x: 30 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className="grid grid-cols-2 gap-6 w-full max-w-lg mx-auto"
+>
+  {stats.map((stat, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+      className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 
+                 hover:border-accent-primary/30 transition-colors group text-center 
+                 flex flex-col justify-center h-full"
+    >
+      <stat.icon className="w-8 h-8 text-accent-primary mb-4 group-hover:text-accent-secondary transition-colors mx-auto" />
+      <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
+      <div className="text-gray-400 text-sm">{stat.label}</div>
+    </motion.div>
+  ))}
+</motion.div>
         </div>
-
         {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}

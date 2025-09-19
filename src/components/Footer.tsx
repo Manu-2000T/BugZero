@@ -21,31 +21,40 @@ export default function Footer() {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div>
+          <div className="space-y-4">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">BZ</span>
               </div>
               <h3 className="text-xl font-bold heading-gradient">BugZero</h3>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 leading-relaxed">
               Your trusted partner in software quality assurance. We break it before it breaks you.
             </p>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-400">ISO 27001 Certified</p>
-              <p className="text-sm text-gray-400">GDPR Compliant</p>
-              <p className="text-sm text-gray-400">24/7 Support</p>
+            <div className="flex flex-wrap gap-4 text-sm">
+              <div className="flex items-center space-x-2 text-green-400">
+                <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+                <span>ISO 27001 Certified</span>
+              </div>
+              <div className="flex items-center space-x-2 text-blue-400">
+                <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                <span>GDPR Compliant</span>
+              </div>
+              <div className="flex items-center space-x-2 text-purple-400">
+                <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
+                <span>24/7 Support</span>
+              </div>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+            <ul className="space-y-3">
               <li>
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Home
                 </button>
@@ -53,7 +62,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Services
                 </button>
@@ -61,7 +70,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('pricing')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Pricing
                 </button>
@@ -69,7 +78,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   About Us
                 </button>
@@ -77,7 +86,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Contact
                 </button>
@@ -85,7 +94,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('free-audit')}
-                  className="text-gray-400 hover:text-accent-primary transition-colors text-left"
+                  className="text-accent-primary hover:text-accent-secondary transition-colors text-left text-sm font-medium"
                 >
                   Free QA Audit
                 </button>
@@ -94,13 +103,13 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2">
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Our Services</h4>
+            <ul className="space-y-3">
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Manual Testing
                 </button>
@@ -108,7 +117,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Automation Testing
                 </button>
@@ -116,7 +125,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Performance Testing
                 </button>
@@ -124,7 +133,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Security Testing
                 </button>
@@ -132,7 +141,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   API Testing
                 </button>
@@ -140,7 +149,7 @@ export default function Footer() {
               <li>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-gray-400 hover:text-white transition-colors text-left"
+                  className="text-gray-400 hover:text-white transition-colors text-left text-sm"
                 >
                   Mobile Testing
                 </button>
@@ -149,67 +158,67 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li>
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm">📞</span>
-                  <button 
-                    onClick={handlePhoneClick}
-                    className="hover:text-accent-primary transition-colors"
-                  >
-                    +91 8310345400
-                  </button>
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Get In Touch</h4>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-blue-400 text-sm">📞</span>
                 </div>
-              </li>
-              <li>
-                <div className="flex items-center space-x-2">
-                  <span className="text-sm">✉️</span>
-                  <button 
-                    onClick={handleEmailClick}
-                    className="hover:text-accent-primary transition-colors"
-                  >
-                    mani@bugzero.in
-                  </button>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-start space-x-2">
-                  <span className="text-sm mt-1">📍</span>
-                  <span className="text-sm">Bengaluru, Karnataka, India</span>
-                </div>
-              </li>
-              <li>
-                <div className="flex items-start space-x-2">
-                  <span className="text-sm mt-1">👥</span>
-                  <div>
-                    <p className="text-sm">Founded by:</p>
-                    <p className="text-sm font-medium text-white">Manu T & Mani</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-            {/* Business Hours */}
-            <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-              <h5 className="text-sm font-semibold text-white mb-2">Business Hours</h5>
-              <div className="text-xs text-gray-400 space-y-1">
-                <p>Monday - Friday: 9:00 AM - 6:00 PM IST</p>
-                <p>Saturday: 10:00 AM - 4:00 PM IST</p>
-                <p>Sunday: Closed</p>
-                <p className="text-accent-primary font-medium mt-2">
-                  Emergency support available 24/7
-                </p>
+                <button 
+                  onClick={handlePhoneClick}
+                  className="text-gray-400 hover:text-accent-primary transition-colors text-sm"
+                >
+                  +91 8310345400
+                </button>
               </div>
+              
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-green-400 text-sm">✉️</span>
+                </div>
+                <button 
+                  onClick={handleEmailClick}
+                  className="text-gray-400 hover:text-accent-primary transition-colors text-sm"
+                >
+                  mani@bugzero.in
+                </button>
+              </div>
+              
+              <div className="flex items-start space-x-3">
+                <div className="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-purple-400 text-sm">📍</span>
+                </div>
+                <span className="text-gray-400 text-sm">Bengaluru, Karnataka, India</span>
+              </div>
+              
+              <div className="flex items-start space-x-3">
+                <div className="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                  <span className="text-orange-400 text-sm">👥</span>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-sm">Founded by:</p>
+                  <p className="text-white text-sm font-medium">Manu T & Mani</p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mt-6">
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="bg-gradient-to-r from-accent-primary to-accent-secondary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:shadow-lg hover:shadow-accent-primary/30 transition-all duration-300 transform hover:scale-105"
+              >
+                Get Free Quote
+              </button>
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-center md:text-left">
+          <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
+            <div className="text-center lg:text-left">
               <p className="text-gray-400 text-sm">
                 © {new Date().getFullYear()} BugZero. All rights reserved.
               </p>
@@ -218,7 +227,7 @@ export default function Footer() {
               </p>
             </div>
             
-            <div className="flex items-center space-x-6">
+            <div className="flex flex-wrap items-center justify-center gap-6">
               <button 
                 onClick={handleEmailClick}
                 className="text-gray-400 hover:text-accent-primary transition-colors text-sm"
@@ -233,16 +242,15 @@ export default function Footer() {
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="bg-accent-primary/20 text-accent-primary px-4 py-2 rounded-lg text-sm 
-                          hover:bg-accent-primary hover:text-white transition-all duration-300"
+                className="bg-accent-primary/20 text-accent-primary px-4 py-2 rounded-lg text-sm hover:bg-accent-primary hover:text-white transition-all duration-300"
               >
-                Get Quote
+                Contact Us
               </button>
             </div>
           </div>
 
-          {/* Certifications */}
-          <div className="flex flex-wrap justify-center items-center space-x-8 mt-8 pt-6 border-t border-gray-800">
+          {/* Certifications - Better alignment */}
+          <div className="flex flex-wrap justify-center items-center gap-8 mt-8 pt-6 border-t border-gray-800">
             <div className="flex items-center space-x-2 text-gray-400 text-xs">
               <span className="w-2 h-2 bg-green-400 rounded-full"></span>
               <span>ISO 27001 Certified</span>
@@ -253,11 +261,11 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-2 text-gray-400 text-xs">
               <span className="w-2 h-2 bg-purple-400 rounded-full"></span>
-              <span>SOC 2 Type II</span>
+              <span>24/7 Emergency Support</span>
             </div>
             <div className="flex items-center space-x-2 text-gray-400 text-xs">
               <span className="w-2 h-2 bg-accent-primary rounded-full"></span>
-              <span>99.9% Uptime SLA</span>
+              <span>99.9% Bug Detection Rate</span>
             </div>
           </div>
         </div>

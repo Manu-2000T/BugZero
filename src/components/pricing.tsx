@@ -196,15 +196,15 @@ export default function PricingPlans() {
           </div>
         </motion.div>
 
-        {/* Main Pricing Plans */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
+        {/* Main Pricing Plans - Fixed alignment issues */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-20 items-stretch">
           {currentPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border transition-all duration-300 hover:scale-105 ${
+              className={`relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border transition-all duration-300 hover:scale-105 flex flex-col h-full ${
                 plan.popular 
                   ? 'border-accent-primary shadow-xl shadow-accent-primary/20' 
                   : 'border-white/10 hover:border-white/20'
@@ -221,25 +221,27 @@ export default function PricingPlans() {
 
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-gray-400 mb-4">{plan.description}</p>
+                <p className="text-gray-400 mb-4 min-h-[48px] flex items-center justify-center">{plan.description}</p>
                 <div className="flex items-baseline justify-center space-x-2">
                   <span className="text-4xl font-bold text-accent-primary">{plan.price}</span>
                   <span className="text-gray-400">{plan.period}</span>
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start space-x-3">
-                    <HiCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-300">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex-1 mb-8">
+                <ul className="space-y-4">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start space-x-3">
+                      <HiCheck className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-300 text-sm leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <button 
                 onClick={scrollToContact}
-                className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
+                className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 mt-auto ${
                   plan.popular
                     ? 'btn-primary hover:shadow-lg hover:shadow-accent-primary/30'
                     : 'bg-white/10 text-white hover:bg-white/20 hover:shadow-lg'
@@ -251,19 +253,21 @@ export default function PricingPlans() {
           ))}
         </div>
 
-        {/* Additional Services */}
+        {/* Additional Services - Better alignment */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-16"
         >
-          <h3 className="text-2xl font-bold text-center text-white mb-2">
-            À La Carte Services
-          </h3>
-          <p className="text-gray-400 text-center mb-8">
-            Need specific testing services? Choose individual components.
-          </p>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-white mb-2">
+              À La Carte Services
+            </h3>
+            <p className="text-gray-400">
+              Need specific testing services? Choose individual components.
+            </p>
+          </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {additionalServices.map((service, index) => (
@@ -272,15 +276,17 @@ export default function PricingPlans() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white/5 rounded-lg p-6 border border-white/10 hover:border-accent-primary/50 transition-colors cursor-pointer"
+                className="bg-white/5 rounded-lg p-6 border border-white/10 hover:border-accent-primary/50 transition-all duration-300 cursor-pointer hover:scale-105 flex flex-col justify-between min-h-[140px]"
                 onClick={scrollToContact}
               >
-                <h4 className="font-semibold text-white mb-2">{service.name}</h4>
-                <div className="flex items-baseline space-x-2 mb-3">
-                  <span className="text-xl font-bold text-accent-primary">{service.price}</span>
-                  <span className="text-gray-400 text-sm">/{service.duration}</span>
+                <div>
+                  <h4 className="font-semibold text-white mb-2">{service.name}</h4>
+                  <div className="flex items-baseline space-x-2 mb-3">
+                    <span className="text-xl font-bold text-accent-primary">{service.price}</span>
+                    <span className="text-gray-400 text-sm">/{service.duration}</span>
+                  </div>
                 </div>
-                <button className="text-accent-primary text-sm hover:text-accent-secondary transition-colors">
+                <button className="text-accent-primary text-sm hover:text-accent-secondary transition-colors text-left">
                   Get Quote →
                 </button>
               </motion.div>
@@ -293,16 +299,18 @@ export default function PricingPlans() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
-          className="text-center mt-16"
+          className="text-center"
         >
           <div className="bg-gradient-to-r from-green-500/20 to-green-400/20 rounded-2xl p-8 border border-green-500/30">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              100% Satisfaction Guarantee
-            </h3>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Not satisfied with our testing results? Will work with you until you are, or provide a full refund. 
-              Your success is our priority.
-            </p>
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                100% Satisfaction Guarantee
+              </h3>
+              <p className="text-gray-300 leading-relaxed">
+                Not satisfied with our testing results? We will work with you until you are, or provide a full refund. 
+                Your success is our priority.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

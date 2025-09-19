@@ -83,7 +83,7 @@ body {
   color: #9ca3af !important;
 }
 
-/* Light mode backgrounds */
+/* Light mode backgrounds - Remove white line hover issue */
 .light .bg-white\/5,
 .light section .bg-white\/5,
 .light div .bg-white\/5 {
@@ -98,7 +98,7 @@ body {
   border-color: rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Light mode borders */
+/* Light mode borders - Fix white line on hover */
 .light .border-white\/10,
 .light section .border-white\/10,
 .light div .border-white\/10 {
@@ -109,6 +109,12 @@ body {
 .light section .border-white\/20,
 .light div .border-white\/20 {
   border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Fix hover effects - remove white lines */
+.light .hover\:border-white\/30:hover,
+.light .hover\:border-accent-primary\/30:hover {
+  border-color: var(--accent-primary) !important;
 }
 
 /* Light mode specific backgrounds */
@@ -142,12 +148,33 @@ body {
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fix card hover effects - remove white line issue */
+.card {
+  background-color: var(--dark-200);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
   box-shadow: 
     0 8px 32px rgba(96, 165, 250, 0.15),
     0 0 0 1px rgba(96, 165, 250, 0.3);
+  transform: translateY(-4px);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+/* Fix light mode card hover - no white lines */
+.light .card:hover {
+  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
+  border-color: var(--accent-primary) !important;
   transform: translateY(-4px);
 }
 
@@ -268,46 +295,15 @@ textarea:focus {
   color: var(--accent-primary) !important;
 }
 
-/* Light mode hero section */
-.light .hero-section,
-.light #home {
-  background-image: linear-gradient(to bottom, #f8fafc, #ffffff) !important;
+/* Remove white line hover issues globally */
+.light *:hover {
+  border-color: currentColor;
 }
 
-.light .hero-section .text-white,
-.light #home .text-white {
-  color: #1f2937 !important;
-}
-
-.light .hero-section .text-gray-300,
-.light #home .text-gray-300 {
-  color: #6b7280 !important;
-}
-
-/* Light mode cards and components */
-.light .service-card,
-.light .pricing-card,
-.light .testimonial-card,
-.light .about-card,
-.light .founder-card,
-.light .contact-info,
-.light .contact-form {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-}
-
-.light .service-card:hover,
-.light .pricing-card:hover,
-.light .about-card:hover,
-.light .founder-card:hover {
-  border-color: var(--accent-primary) !important;
-  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
-}
-
-.light .pricing-card.popular {
-  border-color: var(--accent-primary) !important;
-  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
+.light .hover\:border-white\/10:hover,
+.light .hover\:border-white\/20:hover,
+.light .hover\:border-white\/30:hover {
+  border-color: rgba(96, 165, 250, 0.3) !important;
 }
 
 /* Enhanced light mode fixes */
@@ -358,7 +354,7 @@ textarea:focus {
   background: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
 }
 
-/* Light mode component backgrounds */
+/* Light mode component backgrounds - Fix alignment */
 .light [class*="bg-white/"],
 .light .bg-white\/5,
 .light .bg-white\/10 {
@@ -368,134 +364,12 @@ textarea:focus {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* Light mode specific component fixes */
-.light .hero-section {
-  background: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
-}
-
-.light .about-section,
-.light .services-section,
-.light .pricing-section,
-.light .contact-section,
-.light .free-audit-section {
-  background: linear-gradient(to bottom, #f8fafc, #ffffff) !important;
-}
-
-/* Light mode card hover effects */
+/* Light mode card hover effects - no white lines */
 .light .bg-white\/5:hover,
 .light .bg-white\/10:hover {
   background-color: rgba(255, 255, 255, 0.95) !important;
   box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1) !important;
   border-color: var(--accent-primary) !important;
-}
-
-/* Light mode inputs */
-.light input,
-.light textarea {
-  background-color: rgba(0, 0, 0, 0.05) !important;
-  border-color: rgba(0, 0, 0, 0.2) !important;
-  color: #1f2937 !important;
-}
-
-.light input::placeholder,
-.light textarea::placeholder {
-  color: #9ca3af !important;
-}
-
-.light input:focus,
-.light textarea:focus {
-  background-color: rgba(0, 0, 0, 0.08) !important;
-  border-color: var(--accent-primary) !important;
-}
-
-/* Light mode button overrides */
-.light button:not(.btn-primary) {
-  color: var(--text-primary) !important;
-}
-
-.light .bg-white\/10:not(.btn-primary) {
-  color: var(--text-primary) !important;
-}
-
-/* Light mode stats and achievement cards */
-.light .stat-card,
-.light .achievement-card,
-.light .feature-card {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Light mode trust indicators */
-.light .trust-indicator,
-.light .certification-badge {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Light mode testimonials */
-.light .testimonial-card {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Light mode footer stays dark */
-.light footer {
-  background-color: #1f2937 !important;
-  color: white !important;
-}
-
-.light footer .text-gray-400 {
-  color: #9ca3af !important;
-}
-
-.light footer .text-gray-400:hover {
-  color: white !important;
-}
-
-.light footer * {
-  color: inherit !important;
-}
-
-/* Light mode navigation specific fixes */
-.light nav {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(10px) !important;
-}
-
-.light nav * {
-  color: var(--text-primary) !important;
-}
-
-.light nav .text-accent-primary {
-  color: var(--accent-primary) !important;
-}
-
-.light nav .heading-gradient {
-  background: linear-gradient(to right, var(--accent-primary), #7C3AED, var(--accent-secondary)) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
-
-/* Light mode dropdown menu */
-.light .dropdown-menu {
-  background-color: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
-}
-
-.light .dropdown-menu button,
-.light .dropdown-menu a {
-  color: #4b5563 !important;
-}
-
-.light .dropdown-menu button:hover,
-.light .dropdown-menu a:hover {
-  background-color: rgba(96, 165, 250, 0.1) !important;
-  color: var(--accent-primary) !important;
 }
 
 /* Responsive text */
@@ -505,66 +379,7 @@ textarea:focus {
   }
 }
 
-/* Light mode testimonial cards */
-.light .testimonial-card {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Light mode service cards */
-.light .service-card {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-.light .service-card:hover {
-  border-color: var(--accent-primary) !important;
-  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
-}
-
-/* Light mode pricing cards */
-.light .pricing-card {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-.light .pricing-card.popular {
-  border-color: var(--accent-primary) !important;
-  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
-}
-
-/* Light mode contact section */
-.light .contact-info {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-.light .contact-form {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Light mode about section */
-.light .about-card {
-  background-color: rgba(255, 255, 255, 0.8) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-.light .founder-card {
-  background-color: rgba(255, 255, 255, 0.9) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-.light .founder-card:hover {
-  border-color: var(--accent-primary) !important;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-
+/* Button hover effects */
 .btn-primary::before {
   content: '';
   position: absolute;
@@ -606,11 +421,42 @@ textarea:focus {
   50% { background-position: 100% 50%; }
 }
 
-.card {
-  background-color: var(--dark-200);
-  border-radius: 1rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Fix alignment issues in components */
+.service-card,
+.pricing-card,
+.testimonial-card,
+.about-card,
+.founder-card,
+.contact-info,
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+/* Ensure consistent spacing */
+.grid > * {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix grid alignment issues */
+.grid {
+  align-items: stretch;
+}
+
+/* Remove any potential white line artifacts */
+.light * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.light *:hover {
+  outline: none !important;
+}
+
+.light *:focus {
+  outline: 2px solid var(--accent-primary) !important;
+  outline-offset: 2px !important;
 }
