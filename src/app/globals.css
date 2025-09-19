@@ -30,24 +30,107 @@ body {
 }
 
 /* Light mode styles */
+.light {
+  color-scheme: light;
+}
+
 .light body {
-  background-color: #ffffff;
-  color: #1f2937;
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
 }
 
 .light .section-gradient {
-  background-image: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+  background-image: linear-gradient(to bottom, #f8fafc, #f1f5f9) !important;
 }
 
 .light .card {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  color: #1f2937;
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #1f2937 !important;
 }
 
 .light .card:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border-color: var(--accent-primary);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+/* Light mode text colors - more specific selectors */
+.light h1, 
+.light h2, 
+.light h3, 
+.light h4, 
+.light h5, 
+.light h6 {
+  color: #1f2937 !important;
+}
+
+.light .text-white,
+.light .heading-gradient + .text-white,
+.light section .text-white,
+.light div .text-white {
+  color: #1f2937 !important;
+}
+
+.light .text-gray-300,
+.light section .text-gray-300,
+.light div .text-gray-300 {
+  color: #6b7280 !important;
+}
+
+.light .text-gray-400,
+.light section .text-gray-400,
+.light div .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+/* Light mode backgrounds */
+.light .bg-white\/5,
+.light section .bg-white\/5,
+.light div .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .bg-white\/10,
+.light section .bg-white\/10,
+.light div .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Light mode borders */
+.light .border-white\/10,
+.light section .border-white\/10,
+.light div .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .border-white\/20,
+.light section .border-white\/20,
+.light div .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Light mode specific backgrounds */
+.light .bg-dark-200,
+.light section .bg-dark-200,
+.light nav .bg-dark-200 {
+  background-color: #f9fafb !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .bg-dark-100,
+.light section .bg-dark-100 {
+  background-color: #ffffff !important;
+}
+
+/* Light mode gradient backgrounds */
+.light .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, #f8fafc, #f1f5f9) !important;
+}
+
+.light .bg-gradient-to-r {
+  background-image: linear-gradient(to right, #f8fafc, #f1f5f9) !important;
 }
 
 /* Enhanced button styles */
@@ -58,11 +141,429 @@ body {
   border-radius: 0.75rem;
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  box-shadow: 
+    0 8px 32px rgba(96, 165, 250, 0.15),
+    0 0 0 1px rgba(96, 165, 250, 0.3);
+  transform: translateY(-4px);
+}
+
+.section-gradient {
+  background-image: linear-gradient(to bottom, var(--dark-100), var(--dark-200));
+  position: relative;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-200);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+/* Focus styles */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Light mode input styles */
+.light input,
+.light textarea {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #1f2937 !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+.light input:focus,
+.light textarea:focus {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Light mode navigation */
+.light nav {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light nav .text-white,
+.light nav button,
+.light nav a {
+  color: #1f2937 !important;
+}
+
+.light nav .text-accent-primary {
+  color: var(--accent-primary) !important;
+}
+
+.light nav .heading-gradient {
+  background-image: linear-gradient(to right, var(--accent-primary), #7C3AED, var(--accent-secondary)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Light mode dropdown */
+.light .dropdown-menu {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .dropdown-menu a,
+.light .dropdown-menu button {
+  color: #4b5563 !important;
+}
+
+.light .dropdown-menu a:hover,
+.light .dropdown-menu button:hover {
+  background-color: rgba(96, 165, 250, 0.1) !important;
+  color: var(--accent-primary) !important;
+}
+
+/* Light mode hero section */
+.light .hero-section,
+.light #home {
+  background-image: linear-gradient(to bottom, #f8fafc, #ffffff) !important;
+}
+
+.light .hero-section .text-white,
+.light #home .text-white {
+  color: #1f2937 !important;
+}
+
+.light .hero-section .text-gray-300,
+.light #home .text-gray-300 {
+  color: #6b7280 !important;
+}
+
+/* Light mode cards and components */
+.light .service-card,
+.light .pricing-card,
+.light .testimonial-card,
+.light .about-card,
+.light .founder-card,
+.light .contact-info,
+.light .contact-form {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light .service-card:hover,
+.light .pricing-card:hover,
+.light .about-card:hover,
+.light .founder-card:hover {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
+}
+
+.light .pricing-card.popular {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
+}
+
+/* Enhanced light mode fixes */
+.light * {
+  color: inherit;
+}
+
+/* Light mode root text colors */
+.light,
+.light * {
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+}
+
+/* Override all text colors in light mode */
+.light .text-white,
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6,
+.light p.text-white,
+.light div.text-white,
+.light span.text-white,
+.light button.text-white {
+  color: var(--text-primary) !important;
+}
+
+.light .text-gray-300,
+.light p.text-gray-300,
+.light div.text-gray-300,
+.light span.text-gray-300 {
+  color: var(--text-secondary) !important;
+}
+
+.light .text-gray-400,
+.light p.text-gray-400,
+.light div.text-gray-400,
+.light span.text-gray-400 {
+  color: var(--text-tertiary) !important;
+}
+
+/* Light mode section backgrounds */
+.light section,
+.light .section-gradient {
+  background: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
+}
+
+/* Light mode component backgrounds */
+.light [class*="bg-white/"],
+.light .bg-white\/5,
+.light .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Light mode specific component fixes */
+.light .hero-section {
+  background: linear-gradient(to bottom, #ffffff, #f8fafc) !important;
+}
+
+.light .about-section,
+.light .services-section,
+.light .pricing-section,
+.light .contact-section,
+.light .free-audit-section {
+  background: linear-gradient(to bottom, #f8fafc, #ffffff) !important;
+}
+
+/* Light mode card hover effects */
+.light .bg-white\/5:hover,
+.light .bg-white\/10:hover {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+/* Light mode inputs */
+.light input,
+.light textarea {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #1f2937 !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+.light input:focus,
+.light textarea:focus {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+/* Light mode button overrides */
+.light button:not(.btn-primary) {
+  color: var(--text-primary) !important;
+}
+
+.light .bg-white\/10:not(.btn-primary) {
+  color: var(--text-primary) !important;
+}
+
+/* Light mode stats and achievement cards */
+.light .stat-card,
+.light .achievement-card,
+.light .feature-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Light mode trust indicators */
+.light .trust-indicator,
+.light .certification-badge {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Light mode testimonials */
+.light .testimonial-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Light mode footer stays dark */
+.light footer {
+  background-color: #1f2937 !important;
+  color: white !important;
+}
+
+.light footer .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.light footer .text-gray-400:hover {
+  color: white !important;
+}
+
+.light footer * {
+  color: inherit !important;
+}
+
+/* Light mode navigation specific fixes */
+.light nav {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.light nav * {
+  color: var(--text-primary) !important;
+}
+
+.light nav .text-accent-primary {
+  color: var(--accent-primary) !important;
+}
+
+.light nav .heading-gradient {
+  background: linear-gradient(to right, var(--accent-primary), #7C3AED, var(--accent-secondary)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Light mode dropdown menu */
+.light .dropdown-menu {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .dropdown-menu button,
+.light .dropdown-menu a {
+  color: #4b5563 !important;
+}
+
+.light .dropdown-menu button:hover,
+.light .dropdown-menu a:hover {
+  background-color: rgba(96, 165, 250, 0.1) !important;
+  color: var(--accent-primary) !important;
+}
+
+/* Responsive text */
+@media (max-width: 640px) {
+  .heading-gradient {
+    background-size: 300% auto;
+  }
+}
+
+/* Light mode testimonial cards */
+.light .testimonial-card {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Light mode service cards */
+.light .service-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .service-card:hover {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
+}
+
+/* Light mode pricing cards */
+.light .pricing-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .pricing-card.popular {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 8px 25px -5px rgba(96, 165, 250, 0.2) !important;
+}
+
+/* Light mode contact section */
+.light .contact-info {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .contact-form {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Light mode about section */
+.light .about-card {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .founder-card {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .founder-card:hover {
+  border-color: var(--accent-primary) !important;
   border: none;
   cursor: pointer;
   position: relative;
   overflow: hidden;
 }
+
 
 .btn-primary::before {
   content: '';
@@ -112,72 +613,4 @@ body {
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
-}
-
-.card:hover {
-  box-shadow: 
-    0 8px 32px rgba(96, 165, 250, 0.15),
-    0 0 0 1px rgba(96, 165, 250, 0.3);
-  transform: translateY(-4px);
-}
-
-.section-gradient {
-  background-image: linear-gradient(to bottom, var(--dark-100), var(--dark-200));
-  position: relative;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--dark-200);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
-}
-
-/* Selection styles */
-::selection {
-  background-color: var(--accent-primary);
-  color: white;
-}
-
-/* Focus styles */
-button:focus,
-input:focus,
-textarea:focus {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* Responsive text */
-@media (max-width: 640px) {
-  .heading-gradient {
-    background-size: 300% auto;
-  }
 }

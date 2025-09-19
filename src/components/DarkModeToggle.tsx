@@ -11,19 +11,12 @@ export default function DarkModeToggle() {
   useEffect(() => {
     setMounted(true)
     
-    // Check if there's a saved preference
-    const savedTheme = localStorage.getItem('theme')
-    if (savedTheme) {
-      const isDark = savedTheme === 'dark'
-      setDarkMode(isDark)
-      document.documentElement.classList.toggle('dark', isDark)
-      document.documentElement.classList.toggle('light', !isDark)
-    } else {
-      // Default to dark mode if no preference saved
-      setDarkMode(true)
-      document.documentElement.classList.add('dark')
-      document.documentElement.classList.remove('light')
-    }
+    // Default to dark mode on initial load
+    setDarkMode(true)
+    document.documentElement.classList.add('dark')
+    document.documentElement.classList.remove('light')
+    document.body.style.backgroundColor = '#1E1E1E'
+    document.body.style.color = 'white'
   }, [])
 
   const toggleDarkMode = () => {
@@ -42,9 +35,6 @@ export default function DarkModeToggle() {
       document.body.style.backgroundColor = '#ffffff'
       document.body.style.color = '#1f2937'
     }
-    
-    // Save preference
-    localStorage.setItem('theme', newDarkMode ? 'dark' : 'light')
   }
 
   // Don't render until mounted to avoid hydration mismatch

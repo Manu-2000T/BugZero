@@ -27,43 +27,12 @@ const auditFeatures = [
 ]
 
 export default function FreeQAAudit() {
-  const [auditForm, setAuditForm] = useState({
-    name: '',
-    email: '',
-    company: '',
-    website: '',
-    applicationtype: 'web',
-    description: '',
-    phone: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setAuditForm({ ...auditForm, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitted(true)
-      setAuditForm({
-        name: '',
-        email: '',
-        company: '',
-        website: '',
-        applicationtype: 'web',
-        description: '',
-        phone: ''
-      })
-    }, 2000)
-  }
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="free-audit" className="py-24 bg-gradient-to-b from-dark-100 to-dark-200">
@@ -86,7 +55,7 @@ export default function FreeQAAudit() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start max-w-7xl mx-auto">
           {/* Features Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -133,7 +102,7 @@ export default function FreeQAAudit() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <HiCheckCircle className="w-4 h-4 text-green-400" />
-                  <span>Expert QA engineers with 10+ years experience</span>
+                  <span>Expert QA engineers with 18+ years combined experience</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <HiCheckCircle className="w-4 h-4 text-green-400" />
@@ -143,58 +112,106 @@ export default function FreeQAAudit() {
             </motion.div>
           </motion.div>
 
-          {/* Form Section */}
+          {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center"
           >
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-12"
-              >
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <HiCheckCircle className="w-8 h-8 text-white" />
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-white mb-4">Ready for Your Free Audit?</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                Get started with a comprehensive QA audit of your application. Our experts will analyze 
+                your software and provide detailed recommendations to improve quality and security.
+              </p>
+              
+              <div className="bg-gradient-to-r from-accent-primary/10 to-accent-secondary/10 rounded-xl p-6 border border-accent-primary/20 mb-8">
+                <h4 className="text-lg font-semibold text-white mb-3">What We will Analyze:</h4>
+                <div className="grid grid-cols-2 gap-3 text-sm text-gray-300">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
+                    <span>UI/UX Issues</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
+                    <span>Security Vulnerabilities</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
+                    <span>Performance Issues</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
+                    <span>Functionality Bugs</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
+                    <span>Browser Compatibility</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-accent-primary rounded-full"></div>
+                    <span>Mobile Responsiveness</span>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Audit Request Submitted!</h3>
-                <p className="text-gray-300 mb-6">
-                  Thank you for your interest! Our QA experts will analyze your application 
-                  and send you a comprehensive audit report within 48-72 hours.
-                </p>
-                <button 
-                  onClick={() => setSubmitted(false)}
-                  className="btn-primary"
-                >
-                  Submit Another Request
-                </button>
-              </motion.div>
-            ) : (
-              <>
-                <h3 className="text-2xl font-bold text-white mb-6">Request Your Free Audit</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* (your input fields here, unchanged) */}
+              </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full btn-primary text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed
-                             flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      "Submit Audit Request"
-                    )}
-                  </button>
-                </form>
-              </>
-            )}
+              <button
+                onClick={scrollToContact}
+                className="btn-primary w-full py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2"
+              >
+                <HiShieldCheck className="w-6 h-6" />
+                <span>Request Free Audit</span>
+              </button>
+            </div>
+
+            {/* Process Steps */}
+            <div className="text-left space-y-4">
+              <h4 className="text-lg font-semibold text-white mb-4 text-center">Simple 3-Step Process:</h4>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-accent-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    1
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Share Your Details</p>
+                    <p className="text-gray-400 text-sm">Tell us about your application and testing needs</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-accent-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    2
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">We Analyze</p>
+                    <p className="text-gray-400 text-sm">Our experts conduct a thorough audit of your application</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-8 h-8 bg-accent-primary rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                    3
+                  </div>
+                  <div>
+                    <p className="text-white font-medium">Get Your Report</p>
+                    <p className="text-gray-400 text-sm">Receive detailed findings and recommendations within 48-72 hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Trust badges */}
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <div className="flex items-center justify-center space-x-6 text-sm text-gray-400">
+                <div className="flex items-center space-x-2">
+                  <HiCheckCircle className="w-4 h-4 text-green-400" />
+                  <span>No Credit Card Required</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <HiCheckCircle className="w-4 h-4 text-green-400" />
+                  <span>100% Free</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

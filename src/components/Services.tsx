@@ -122,6 +122,13 @@ const testimonials = [
 ];
 
 export default function Services() {
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="services" className="py-24 section-gradient">
       <div className="container mx-auto px-6">
@@ -184,15 +191,8 @@ export default function Services() {
                   {service.price}
                 </span>
                 <button
-                  onClick={() =>
-                    (window.location.href = "mailto:mani@bugzero.in?subject=" +
-                      encodeURIComponent(service.title + " Inquiry") +
-                      "&body=" +
-                      encodeURIComponent(
-                        `Hello BugZero Team,\n\nI am interested in your ${service.title.toLowerCase()}.\n\nPlease share more details.\n\nThanks.`
-                      ))
-                  }
-                  className="px-4 py-2 bg-accent-primary/20 text-accent-primary font-medium rounded-lg hover:bg-accent-primary/30 transition-colors"
+                  onClick={scrollToContact}
+                  className="px-4 py-2 bg-accent-primary/20 text-accent-primary font-medium rounded-lg hover:bg-accent-primary hover:text-white transition-all duration-300 transform hover:scale-105"
                 >
                   Get Started
                 </button>

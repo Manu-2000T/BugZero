@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { HiCheck, HiStar } from 'react-icons/hi'
 
@@ -13,7 +14,7 @@ interface PricingPlan {
   color: string
 }
 
-const pricingPlans: PricingPlan[] = [
+const projectPlans: PricingPlan[] = [
   {
     name: "Starter Testing",
     price: "₹25,000",
@@ -76,6 +77,65 @@ const pricingPlans: PricingPlan[] = [
   }
 ]
 
+const monthlyPlans: PricingPlan[] = [
+  {
+    name: "Basic Monthly",
+    price: "₹50,000",
+    period: "/month",
+    description: "Ongoing testing support for continuous development",
+    features: [
+      "40 hours of testing per month",
+      "Manual & Automated Testing",
+      "API Testing",
+      "Bug Tracking & Reporting",
+      "Email & Chat Support",
+      "Monthly Test Reports",
+      "2 Applications Coverage"
+    ],
+    buttonText: "Get Started",
+    color: "from-blue-500 to-blue-600"
+  },
+  {
+    name: "Professional Monthly",
+    price: "₹1,25,000",
+    period: "/month",
+    description: "Complete QA solution for growing teams",
+    features: [
+      "100 hours of testing per month",
+      "Full Testing Suite",
+      "Performance & Security Testing",
+      "CI/CD Integration",
+      "Dedicated QA Engineer",
+      "Priority Support",
+      "Weekly Reports",
+      "5 Applications Coverage",
+      "Test Automation Setup"
+    ],
+    popular: true,
+    buttonText: "Most Popular",
+    color: "from-accent-primary to-accent-secondary"
+  },
+  {
+    name: "Enterprise Monthly",
+    price: "₹2,50,000",
+    period: "/month",
+    description: "Full-scale QA team for large organizations",
+    features: [
+      "Unlimited testing hours",
+      "Dedicated QA Team (3+ members)",
+      "Complete Testing Suite",
+      "Custom Test Framework",
+      "24/7 Support",
+      "Advanced Reporting & Analytics",
+      "Unlimited Applications",
+      "On-site Support Available",
+      "Custom SLA Agreement"
+    ],
+    buttonText: "Contact Us",
+    color: "from-purple-500 to-purple-600"
+  }
+]
+
 const additionalServices = [
   { name: "Test Automation Setup", price: "₹50,000", duration: "one-time" },
   { name: "Performance Testing Only", price: "₹30,000", duration: "per application" },
@@ -86,6 +146,17 @@ const additionalServices = [
 ]
 
 export default function PricingPlans() {
+  const [isProjectBased, setIsProjectBased] = useState(true)
+
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const currentPlans = isProjectBased ? projectPlans : monthlyPlans
+
   return (
     <section id="pricing" className="py-24 section-gradient">
       <div className="container mx-auto px-6">
@@ -101,11 +172,25 @@ export default function PricingPlans() {
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
             Choose the perfect testing plan for your project. No hidden costs, just quality assurance.
           </p>
-          <div className="inline-flex bg-white/10 rounded-full p-1">
-            <button className="px-6 py-2 rounded-full bg-accent-primary text-white">
+          <div className="inline-flex bg-white/10 rounded-full p-1 border border-white/20">
+            <button 
+              onClick={() => setIsProjectBased(true)}
+              className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                isProjectBased 
+                  ? 'bg-accent-primary text-white shadow-lg' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
               Project Based
             </button>
-            <button className="px-6 py-2 rounded-full text-gray-300 hover:text-white transition-colors">
+            <button 
+              onClick={() => setIsProjectBased(false)}
+              className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                !isProjectBased 
+                  ? 'bg-accent-primary text-white shadow-lg' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
               Monthly Plans
             </button>
           </div>
@@ -113,7 +198,7 @@ export default function PricingPlans() {
 
         {/* Main Pricing Plans */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {pricingPlans.map((plan, index) => (
+          {currentPlans.map((plan, index) => (
             <motion.div
               key={plan.name}
               initial={{ opacity: 0, y: 20 }}
@@ -153,10 +238,11 @@ export default function PricingPlans() {
               </ul>
 
               <button 
-                className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 ${
+                onClick={scrollToContact}
+                className={`w-full py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
                   plan.popular
                     ? 'btn-primary hover:shadow-lg hover:shadow-accent-primary/30'
-                    : 'bg-white/10 text-white hover:bg-white/20'
+                    : 'bg-white/10 text-white hover:bg-white/20 hover:shadow-lg'
                 }`}
               >
                 {plan.buttonText}
@@ -186,13 +272,17 @@ export default function PricingPlans() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white/5 rounded-lg p-6 border border-white/10 hover:border-accent-primary/50 transition-colors"
+                className="bg-white/5 rounded-lg p-6 border border-white/10 hover:border-accent-primary/50 transition-colors cursor-pointer"
+                onClick={scrollToContact}
               >
                 <h4 className="font-semibold text-white mb-2">{service.name}</h4>
-                <div className="flex items-baseline space-x-2">
+                <div className="flex items-baseline space-x-2 mb-3">
                   <span className="text-xl font-bold text-accent-primary">{service.price}</span>
                   <span className="text-gray-400 text-sm">/{service.duration}</span>
                 </div>
+                <button className="text-accent-primary text-sm hover:text-accent-secondary transition-colors">
+                  Get Quote →
+                </button>
               </motion.div>
             ))}
           </div>

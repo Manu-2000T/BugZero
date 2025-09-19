@@ -18,7 +18,7 @@ export default function Hero() {
   }
 
   return (
-    <div id="home" className="relative section-gradient min-h-screen flex items-center">
+    <div id="home" className="relative section-gradient min-h-screen flex items-center hero-section">
       {/* Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-radial from-accent-primary/10 via-transparent to-transparent opacity-50" />
@@ -49,7 +49,7 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10 pt-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -70,12 +70,12 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1 
-              className="text-5xl lg:text-7xl font-bold mb-8 heading-gradient leading-tight"
+              className="text-5xl lg:text-7xl font-bold mb-8 leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              We Break It Before<br />
+              <span className="heading-gradient">We Break It Before</span><br />
               <span className="text-accent-primary">It Breaks You</span>
             </motion.h1>
 
@@ -148,9 +148,9 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-accent-primary/30 transition-colors group"
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-accent-primary/30 transition-colors group text-center"
               >
-                <stat.icon className="w-8 h-8 text-accent-primary mb-4 group-hover:text-accent-secondary transition-colors" />
+                <stat.icon className="w-8 h-8 text-accent-primary mb-4 group-hover:text-accent-secondary transition-colors mx-auto" />
                 <div className="text-3xl font-bold text-white mb-2">{stat.number}</div>
                 <div className="text-gray-400 text-sm">{stat.label}</div>
               </motion.div>
