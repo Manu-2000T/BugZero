@@ -262,7 +262,7 @@ export default function PricingPlans() {
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-white mb-2">
-              À La Carte Services
+              Your Services
             </h3>
             <p className="text-gray-400">
               Need specific testing services? Choose individual components.

@@ -8,19 +8,17 @@ import {
 const founders = [
   {
     name: "Manu T",
-    role: "Co-Founder & Lead QA Engineer",
-    experience: "8+ years",
+    role: "Co-Founder & CEO",
+    experience: "5+ years",
     expertise: ["Performance Testing", "Test Automation", "CI/CD Integration"],
-    image: "/api/placeholder/120/120",
     description: "Expert in building scalable testing frameworks and performance optimization."
   },
   {
     name: "Mani",
-    role: "Co-Founder & Security Testing Lead",
-    experience: "10+ years",
-    expertise: ["Security Testing", "Penetration Testing", "API Testing"],
-    image: "/api/placeholder/120/120",
-    description: "Specialized in identifying security vulnerabilities and ensuring robust application security."
+    role: "Co-Founder & CTO",
+    experience: "5+ years",
+    expertise: ["Cypress", "TestNG","Selenium", "API Testing"],
+    description: "Specialized in automation testing."
   }
 ]
 
@@ -96,7 +94,7 @@ export default function About() {
               <h3 className="text-3xl font-bold text-white mb-6">Our Story</h3>
               <p className="text-gray-300 mb-6 leading-relaxed text-lg">
                 BugZero was born from a simple belief: every software product deserves to be perfect. 
-                Founded by Manu T and Mani, two seasoned QA engineers with a combined experience of 18+ years, 
+                Founded by Manu T and Mani, two seasoned QA engineers with a combined experience of 5+ years, 
                 we have witnessed firsthand how critical bugs can destroy user trust and business reputation.
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed text-lg">
@@ -170,11 +168,6 @@ export default function About() {
                 className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-accent-primary/30 transition-all duration-300 group"
               >
                 <div className="text-center mb-6">
-                  <img
-                    src={founder.image}
-                    alt={founder.name}
-                    className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-accent-primary/20 group-hover:border-accent-primary/50 transition-colors duration-300"
-                  />
                   <h4 className="text-xl font-bold text-white mb-1">{founder.name}</h4>
                   <p className="text-accent-primary font-semibold">{founder.role}</p>
                   <p className="text-gray-400 text-sm">{founder.experience} in QA</p>

@@ -102,7 +102,7 @@ export default function FreeQAAudit() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <HiCheckCircle className="w-4 h-4 text-green-400" />
-                  <span>Expert QA engineers with 18+ years combined experience</span>
+                  <span>Expert QA engineers with 5+ years combined experience</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <HiCheckCircle className="w-4 h-4 text-green-400" />

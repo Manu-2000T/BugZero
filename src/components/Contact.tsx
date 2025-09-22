@@ -237,7 +237,7 @@ export default function Contact() {
               </h4>
               <p className="text-gray-300 leading-relaxed">
                 BugZero was founded by passionate QA engineers who believe every
-                product deserves to be bug-free. With 18+ years of combined experience in
+                product deserves to be bug-free. With 5+ years of combined experience in
                 testing across industries, we are committed to delivering
                 reliable and high-quality results.
               </p>
