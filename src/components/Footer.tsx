@@ -32,10 +32,6 @@ export default function Footer() {
               Your trusted partner in software quality assurance. We break it before it breaks you.
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
-              <div className="flex items-center space-x-2 text-green-400">
-                <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                <span>ISO 27001 Certified</span>
-              </div>
               <div className="flex items-center space-x-2 text-blue-400">
                 <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
                 <span>GDPR Compliant</span>
@@ -251,10 +247,6 @@ export default function Footer() {
 
           {/* Certifications - Better alignment */}
           <div className="flex flex-wrap justify-center items-center gap-8 mt-8 pt-6 border-t border-gray-800">
-            <div className="flex items-center space-x-2 text-gray-400 text-xs">
-              <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-              <span>ISO 27001 Certified</span>
-            </div>
             <div className="flex items-center space-x-2 text-gray-400 text-xs">
               <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
               <span>GDPR Compliant</span>

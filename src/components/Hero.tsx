@@ -121,10 +121,6 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-8 text-gray-400"
             >
               <div className="flex items-center space-x-2">
-                <HiBadgeCheck className="w-5 h-5 text-green-400" />
-                <span>ISO 27001 Certified</span>
-              </div>
-              <div className="flex items-center space-x-2">
                 <HiShieldCheck className="w-5 h-5 text-blue-400" />
                 <span>GDPR Compliant</span>
               </div>

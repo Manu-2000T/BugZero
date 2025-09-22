@@ -221,11 +221,11 @@ export default function Services() {
                 className="bg-white/5 p-6 rounded-2xl border border-white/10 text-left"
               >
                 <div className="flex items-center mb-4">
-                  <img
+                  {/* <img
                     src={t.image}
                     alt={t.name}
                     className="w-12 h-12 rounded-full mr-4"
-                  />
+                  /> */}
                   <div>
                     <h4 className="text-white font-semibold">{t.name}</h4>
                     <p className="text-gray-400 text-sm">{t.company}</p>

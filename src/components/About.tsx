@@ -107,7 +107,6 @@ export default function About() {
                   <HiStar className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">ISO 27001 Certified</p>
                   <p className="text-gray-400 text-sm">Ensuring the highest security standards</p>
                 </div>
               </div>
