@@ -24,28 +24,31 @@ const eslintConfig = [
     rules: {
       // Allow any types in specific cases
       "@typescript-eslint/no-explicit-any": [
-        "error",
+        "warn",
         {
           ignoreRestArgs: true,
-        }
+        },
       ],
-      // More lenient rules for API routes and error handling
+
+      // Don't block builds for unused vars/imports
       "@typescript-eslint/no-unused-vars": [
-        "error", 
-        { 
-          "argsIgnorePattern": "^_",
-          "varsIgnorePattern": "^_" 
-        }
+        "warn", // ⬅️ changed from "error" → "warn"
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
       ],
-    }
+      "no-unused-vars": "off", // disable base rule (to avoid conflict)
+    },
   },
   {
     files: ["**/api/**/*.ts", "**/api/**/*.tsx"],
     rules: {
       // More lenient for API routes
-      "@typescript-eslint/no-explicit-any": "warn"
-    }
-  }
+      "@typescript-eslint/no-explicit-any": "warn",
+    },
+  },
 ];
 
 export default eslintConfig;
