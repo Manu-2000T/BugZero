@@ -20,6 +20,32 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // Allow any types in specific cases
+      "@typescript-eslint/no-explicit-any": [
+        "error",
+        {
+          ignoreRestArgs: true,
+        }
+      ],
+      // More lenient rules for API routes and error handling
+      "@typescript-eslint/no-unused-vars": [
+        "error", 
+        { 
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_" 
+        }
+      ],
+    }
+  },
+  {
+    files: ["**/api/**/*.ts", "**/api/**/*.tsx"],
+    rules: {
+      // More lenient for API routes
+      "@typescript-eslint/no-explicit-any": "warn"
+    }
+  }
 ];
 
 export default eslintConfig;

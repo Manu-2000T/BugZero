@@ -15,6 +15,12 @@ interface FormErrors {
   text?: string;
 }
 
+interface ApiResponse {
+  success: boolean;
+  message: string;
+  error?: string;
+}
+
 export default function Contact() {
   const [form, setForm] = useState<FormData>({ name: "", email: "", text: "" });
   const [status, setStatus] = useState("");
@@ -81,7 +87,7 @@ export default function Contact() {
         body: JSON.stringify(form),
       });
 
-      const data = await res.json();
+      const data: ApiResponse = await res.json();
 
       if (res.ok) {
         setStatus("✅ Message sent successfully!");
@@ -90,20 +96,26 @@ export default function Contact() {
       } else {
         setStatus("❌ " + (data.message || "Failed to send message"));
       }
-    } catch (err) {
-      console.error("⚠️ Fetch failed:", err);
-      setStatus("⚠️ Network error - please try again");
+    } catch (error) {
+      console.error("⚠️ Fetch failed:", error);
+      let errorMessage = "Network error - please try again";
+      
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
+      setStatus("⚠️ " + errorMessage);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleEmailClick = () => {
+  const handleEmailClick = (): void => {
     window.location.href =
       "mailto:mani@bugzero.in?subject=Testing Services Inquiry&body=Hello BugZero Team,%0D%0A%0D%0AI am interested in your software testing services.%0D%0A%0D%0APlease provide more information about:%0D%0A- Your testing packages%0D%0A- Pricing details%0D%0A- Timeline for my project%0D%0A%0D%0AThank you!";
   };
 
-  const handlePhoneClick = () => {
+  const handlePhoneClick = (): void => {
     window.location.href = "tel:+918310345400";
   };
 
@@ -203,7 +215,7 @@ export default function Contact() {
                 <div className="flex-1">
                   <h4 className="font-semibold text-white mb-1">Location</h4>
                   <p className="text-gray-300">Bengaluru, Karnataka, India</p>
-                  <p className="text-gray-400 text-sm">Serving clients globally</p>
+                  <p className="text-gray-400 text-small">Serving clients globally</p>
                 </div>
               </motion.div>
 
